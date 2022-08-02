@@ -58,7 +58,7 @@ class ImageSteganography:
 
         pixels = img_arr.size // channels
 
-        message_to_hide += self.STOP_INDICATOR
+        message_to_hide = str(message_to_hide) + self.STOP_INDICATOR
 
         message_bits = "".join(f"{ord(c):08b}" for c in message_to_hide)
         total_bits = len(message_bits)
@@ -122,16 +122,3 @@ class ImageSteganography:
         raise ImageSteganographyException(
             "Something Happened! Can't find hidden message."
         )
-
-
-class RSA:
-    def encrypt_text(self, public_key, normal_text):
-        encrypted_text = normal_text
-        return encrypted_text
-
-    def decrypt_text(self, private_key, encrypted_text):
-        normal_text = encrypted_text
-        return normal_text
-
-    def generate_keys():
-        return 23, 23

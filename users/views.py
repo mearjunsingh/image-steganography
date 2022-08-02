@@ -13,7 +13,12 @@ def register_user(request):
         new_user = form.save()
         new_user.is_staff = True
         new_user.save()
-        messages.info(request, "Thanks for registering. You are now logged in.")
+        messages.info(
+            request,
+            """Thanks for registering. You are now logged in. Your Public Key is: "{}". Copy this and keep somewhere safe. You cannot retrieve this once this is lost.""".format(
+                new_user.public_key
+            ),
+        )
         new_user = authenticate(
             username=form.cleaned_data["username"],
             password=form.cleaned_data["password1"],

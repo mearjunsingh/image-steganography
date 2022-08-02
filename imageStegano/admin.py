@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from algorithm.common import RSA, ImageSteganography
+from algorithm.rsa import RSA
+from algorithm.steganography import ImageSteganography
 
 from .forms import DecryptForm, EncryptFrom
 from .models import Decrypt, Encrypt
@@ -48,7 +49,7 @@ class EncryptAdmin(BaseModelAdmin):
 
     def save_model(self, request, obj, form, change):
         obj.user = request.user
-        encrypted_text = RSA().encrypt_text(obj.reciever_public_key, obj.message)
+        encrypted_text = RSA().encrypt_message(obj.reciever_public_key, obj.message)
         obj.encrypted_image = ImageSteganography().encode_text_into_image(
             encrypted_text, obj.original_image
         )
@@ -71,5 +72,5 @@ class DecryptAdmin(BaseModelAdmin):
         encrypted_text = ImageSteganography().decode_text_from_image(
             obj.encrypted_image
         )
-        obj.message = RSA().decrypt_text(request.user.private_key, encrypted_text)
+        obj.message = RSA().decrypt_message(request.user.private_key, encrypted_text)
         obj.save()

@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from algorithm.common import RSA
+from algorithm.rsa import RSA
 
 
 class User(AbstractUser):
@@ -16,6 +16,6 @@ class User(AbstractUser):
         if not self.id:
             self.id = uuid.uuid4()
         if not self.public_key or not self.private_key:
-            self.public_key, self.private_key = RSA.generate_keys()
+            self.public_key, self.private_key = RSA().generate_keys()
         self.is_staff = True
         return super().save(*args, **kwargs)

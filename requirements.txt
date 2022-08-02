@@ -5,6 +5,5 @@ mysqlclient==2.1.0
 numpy==1.22.3
 Pillow==9.1.0
 pyasn1==0.4.8
-rsa==4.8
 sqlparse==0.4.2
 tzdata==2022.1
