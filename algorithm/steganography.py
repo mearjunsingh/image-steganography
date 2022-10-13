@@ -14,7 +14,6 @@ class ImageSteganography:
     """
     Class that implements actual logic to hide and reveal text in image itself
     """
-
     def __init__(
         self,
         STOP_INDICATOR="<<END_ENCRYPTED_MESSAGE>>",
