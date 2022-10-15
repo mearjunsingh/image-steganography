@@ -119,5 +119,5 @@ class ImageSteganography:
             return secret_message[: secret_message.index(self.STOP_INDICATOR)]
 
         raise ImageSteganographyException(
-            "Something Happened! Can't find hidden message."
+            "Something Happened! Cannot find hidden message."
         )
