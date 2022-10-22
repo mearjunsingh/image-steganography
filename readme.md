@@ -1,1 +1,1 @@
-Image Steganography
+Image Steganography Project 
