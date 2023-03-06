@@ -3,3 +3,4 @@ __pycache__
 .env
 uploads
 db.sqlite3
+tmp
