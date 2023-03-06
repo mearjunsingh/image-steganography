@@ -4,3 +4,6 @@ __pycache__
 uploads
 db.sqlite3
 tmp
+assets/
+stderr.log
+.htaccess
