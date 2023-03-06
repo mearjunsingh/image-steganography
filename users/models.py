@@ -16,6 +16,5 @@ class User(AbstractUser):
         if not self.id:
             self.id = uuid.uuid4()
         if not self.public_key or not self.private_key:
-            self.public_key, self.private_key = RSA().generate_keys()
-        self.is_staff = True
+            self.public_key, self.private_key = RSA.generate_keys()
         return super().save(*args, **kwargs)
