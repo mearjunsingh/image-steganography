@@ -29,6 +29,7 @@ urlpatterns = [
             ]
         ),
     ),
+    path("", include("imageStegano.urls")),
 ]
 
 if settings.DEBUG:

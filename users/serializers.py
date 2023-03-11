@@ -79,6 +79,8 @@ class SignUpUserSerializer(serializers.ModelSerializer):
         Return the JWT token to the user on successful sign up.
         """
         refresh = RefreshToken.for_user(instance)
+        refresh["username"] = instance.username
+
         return {
             "refresh": str(refresh),
             "access": str(refresh.access_token),

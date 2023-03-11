@@ -32,9 +32,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "corsheaders",
     "algorithm",
     "imageStegano",
-    "rest_framework",
     "users",
 ]
 
@@ -46,6 +47,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "steganography.urls"
@@ -125,8 +128,4 @@ REST_FRAMEWORK = {
     ],
 }
 
-JAZZMIN_SETTINGS = {
-    "site_title": "Steganography",
-    "site_header": "Steganography",
-    "welcome_sign": "Welcome to Steganography",
-}
+CORS_ALLOW_ALL_ORIGINS = True
